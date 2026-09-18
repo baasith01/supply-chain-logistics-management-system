@@ -1,0 +1,25 @@
+# Core Python
+pandas
+numpy
+requests
+python-dotenv
+
+# Data Engineering
+pyspark
+kafka-python
+sqlalchemy
+pymysql
+
+# Data Analysis & Visualization
+matplotlib
+scikit-learn
+
+# dbt
+dbt-core
+dbt-spark
+
+# Testing
+pytest
+
+# Optional API / Development Utilities
+jupyter
