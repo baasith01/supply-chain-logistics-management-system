@@ -1,0 +1,16 @@
+road_id,start_location,end_location,road_type,distance_km,lanes,speed_limit_kmph,road_condition
+RD001,Chennai,Vellore,Local Road,78.64,2,100,Fair
+RD002,Chennai,Salem,Major Road,114.31,2,80,Fair
+RD003,Chennai,Trichy,Major Road,107.32,4,40,Fair
+RD004,Chennai,Erode,National Highway,63.17,4,60,Good
+RD005,Chennai,Coimbatore,Local Road,136.78,4,80,Good
+RD006,Vellore,Salem,National Highway,145.8,2,60,Good
+RD007,Salem,Erode,Local Road,46.03,2,80,Fair
+RD008,Salem,Coimbatore,Major Road,151.03,6,80,Good
+RD009,Salem,Trichy,Major Road,131.53,4,60,Good
+RD010,Trichy,Madurai,State Highway,59.16,6,50,Fair
+RD011,Trichy,Tirunelveli,State Highway,132.66,2,40,Excellent
+RD012,Madurai,Tirunelveli,Major Road,125.42,6,50,Excellent
+RD013,Coimbatore,Erode,State Highway,127.39,4,50,Good
+RD014,Coimbatore,Madurai,Major Road,178.5,2,40,Good
+RD015,Erode,Trichy,National Highway,151.99,2,60,Fair

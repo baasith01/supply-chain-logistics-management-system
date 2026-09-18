@@ -1,0 +1,171 @@
+# ============================================================
+# Logistics & Supply Chain Intelligence
+# dbt Project Configuration
+# ============================================================
+#
+# Purpose:
+#   Configure the dbt transformation layer for the logistics
+#   analytics warehouse.
+#
+# Project structure:
+#   dbt/
+#   ├── dbt_project.yml
+#   ├── models/
+#   │   ├── staging/
+#   │   ├── intermediate/
+#   │   └── marts/
+#   ├── tests/
+#   └── seeds/
+#
+# Current model layers:
+#   1. Staging      -> standardize source structures
+#   2. Intermediate -> business transformations
+#   3. Marts        -> dashboard/executive-ready datasets
+#
+# Target adapter:
+#   dbt-spark is included in requirements.txt so this project
+#   can be connected to Spark SQL. The profile name below is
+#   intentionally "logistics_warehouse"; credentials and runtime
+#   connection settings belong in profiles.yml and should NOT be
+#   committed to GitHub.
+# ============================================================
+
+name: 'logistics_supply_chain'
+version: '1.0.0'
+config-version: 2
+
+# The profile name must match the profile configured locally
+# in ~/.dbt/profiles.yml.
+profile: 'logistics_warehouse'
+
+
+# ============================================================
+# Project paths
+# ============================================================
+
+model-paths: ["models"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+log-path: "logs"
+
+
+# ============================================================
+# Cleanup configuration
+# ============================================================
+# These paths can be removed with:
+#
+#   dbt clean
+#
+# They should remain ignored by Git.
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+
+# ============================================================
+# Model configuration
+# ============================================================
+
+models:
+
+  logistics_supply_chain:
+
+    # --------------------------------------------------------
+    # Staging layer
+    # --------------------------------------------------------
+    # Purpose:
+    #   Light transformations such as renaming, casting,
+    #   trimming, and source standardization.
+    #
+    # Materialization:
+    #   view
+    #
+    staging:
+      +materialized: view
+      +schema: staging
+
+    # --------------------------------------------------------
+    # Intermediate layer
+    # --------------------------------------------------------
+    # Purpose:
+    #   Reusable business transformations and joins.
+    #
+    # Materialization:
+    #   view
+    #
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+
+    # --------------------------------------------------------
+    # Mart layer
+    # --------------------------------------------------------
+    # Purpose:
+    #   Business-facing datasets consumed by Power BI,
+    #   executive reporting, and analytics.
+    #
+    # Materialization:
+    #   table
+    #
+    marts:
+      +materialized: table
+      +schema: marts
+
+
+# ============================================================
+# Seeds
+# ============================================================
+#
+# Seed CSV files can be placed under:
+#
+#   dbt/seeds/
+#
+# They can then be loaded with:
+#
+#   dbt seed
+#
+# Keep large operational datasets in the data/lake/warehouse
+# pipeline rather than committing them as dbt seeds.
+#
+# Example future seed configuration:
+#
+# seeds:
+#   logistics_supply_chain:
+#     +quote_columns: true
+
+
+# ============================================================
+# Testing
+# ============================================================
+#
+# Generic tests can be defined in schema.yml files alongside
+# models, while custom SQL tests live under:
+#
+#   dbt/tests/
+#
+# Run:
+#
+#   dbt test
+#
+# ============================================================
+
+
+# ============================================================
+# Documentation
+# ============================================================
+#
+# Generate documentation:
+#
+#   dbt docs generate
+#
+# Serve locally:
+#
+#   dbt docs serve
+#
+# ============================================================

@@ -1,0 +1,11 @@
+warehouse_id,warehouse_name,region,capacity_units,latitude,longitude
+WH001,Chennai Central Warehouse,Chennai,25000,13.0827,80.2707
+WH002,Chennai North Warehouse,Chennai,18000,13.15,80.29
+WH003,Coimbatore Distribution Center,Coimbatore,16000,11.0168,76.9558
+WH004,Madurai Distribution Center,Madurai,14000,9.9252,78.1198
+WH005,Trichy Distribution Center,Trichy,12000,10.7905,78.7047
+WH006,Salem Distribution Center,Salem,13000,11.6643,78.146
+WH007,Tirunelveli Distribution Center,Tirunelveli,10000,8.7139,77.7567
+WH008,Vellore Distribution Center,Vellore,9000,12.9165,79.1325
+WH009,Erode Distribution Center,Erode,11000,11.341,77.7172
+WH010,Chennai South Warehouse,Chennai,20000,12.95,80.22
